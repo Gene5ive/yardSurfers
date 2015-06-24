@@ -13,31 +13,10 @@
       <label for="ownerName">Enter the yard owner's name:</label>
       {{input value=ownerName id="ownerName" class="form-control"}}
     </div>
-    <span class="form-instructions">Carefully enter the address per instructions</span>
-    <br>
-    <div class="form-group">
-      <label for="addNum">Street Number:</label>
-      {{input value=addNum id="addNum" class="form-control"}}
-    </div>
 
     <div class="form-group">
-      <label for="addStreet">Street:</label>
-      {{input value=addStreet id="addStreet" class="form-control"}}
-    </div>
-
-    <div class="form-group">
-      <label for="addCity">City:</label>
-      {{input value=addCity id="addCity" class="form-control"}}
-    </div>
-
-    <div class="form-group">
-      <label for="addState">State abbreviation in all caps:</label>
-      {{input value=addState id="addState" class="form-control"}}
-    </div>
-
-    <div class="form-group">
-      <label for="addZip">Zip code of yard:</label>
-      {{input value=addZip id="addZip" class="form-control"}}
+      <label for="mapAddress">Enter the yard's address:</label>
+      {{input value=mapAddress id="mapAddress" class="form-control"}}
     </div>
 
     <div class="form-group">
@@ -70,7 +49,7 @@
       {{view "select" content=pets value=pet}}
     </div>
 
-    <div class="form-group">
+    <div class="form-group image-inputs">
       <label for="image1">Image URL:</label>
       {{input value=image1 id="image1" class="form-control"}}
     </div>

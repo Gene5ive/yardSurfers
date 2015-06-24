@@ -3,11 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   ownerName: DS.attr('string'),
   name: DS.attr('string'),
-  addNum: DS.attr('string'),
-  addStreet: DS.attr('string'),
-  addCity: DS.attr('string'),
-  addState: DS.attr('string'),
-  addZip: DS.attr('string'),
+  mapAddress: DS.attr('string'),
   description: DS.attr('string'),
   price: DS.attr('string'),
   toilet: DS.attr('string'),
@@ -18,5 +14,5 @@ export default DS.Model.extend({
   image2: DS.attr('string'),
   image3: DS.attr('string'),
   image4: DS.attr('string'),
-  maps: DS.hasMany('map', {async: true})
+  // reviews: DS.hasMany('review', {async: true})
 });

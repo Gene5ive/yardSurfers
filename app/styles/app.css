@@ -97,6 +97,7 @@ li a {
   color:  #F7BC3E;
 }
 
+/*new-listing form styling -----------------*/
 .btn-wide {
   width:48%;
   margin-right:3px;
@@ -104,6 +105,18 @@ li a {
 .control-group.form-inline:nth-child(odd) {
   float: right;
 }
+.control-group.form-inline:nth-child(even) {
+  float: left;
+}
+.image-inputs {
+  margin-top: 107px;
+}
+
+.control-group.form-inline {
+  padding-bottom: 3px;
+}
+
+/*listing page info styling ---------------*/
 .listing-bold {
   color: #3BAEDB;
   font-weight: bold;

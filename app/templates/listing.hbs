@@ -15,28 +15,8 @@
         </div>
 
         <div class="form-group">
-          <label for="addNum">Street Number:</label>
-          {{input value=model.addNum id="addNum" class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label for="addStreet">Street:</label>
-          {{input value=model.addStreet id="addStreet" class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label for="addCity">City:</label>
-          {{input value=model.addCity id="addCity" class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label for="addState">State abbreviation in all caps:</label>
-          {{input value=model.addState id="addState" class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label for="addZip">Zip code of yard:</label>
-          {{input value=model.addZip id="addZip" class="form-control"}}
+          <label for="mapAddress">Enter the yard's address:</label>
+          {{input value=model.mapAddress id="mapAddress" class="form-control"}}
         </div>
 
         <div class="form-group">
@@ -109,7 +89,7 @@
             <h2 class="text-capitalize listing-head">{{model.name}}</h2>
             <p><span class="listing-bold">Owner Name: </span>{{model.ownerName}}</p>
             <p><span class="listing-bold">Description: </span>{{model.description}}</p>
-            <p><span class="listing-bold">Address: </span>{{model.addNum}} {{model.addStreet}} {{model.addCity}}, {{model.addState}}</p>
+            <p><span class="listing-bold">Address: </span>{{model.mapAddress}}</p>
 
             <hr>
             <h4 class="listing-head">Amenities:</h4><br>
