@@ -122,3 +122,56 @@ li a {
   color: orange;
   float: right;
 }*/
+
+/* LISTING STYLING */
+
+.listWell {
+  height: 350px;
+}
+
+.listWell a:hover {
+  text-decoration: none;
+}
+
+#listName {
+  position: relative;
+  bottom: 100px;
+  left: 15px;
+  font-size: 20px;
+  color: black;
+}
+
+#listDescription {
+  position: relative;
+  bottom: 107px;
+  left: 15px;
+  font-size: 12px;
+  color: black;
+}
+
+
+#listPrice {
+  width: 60px;
+  height: 45px;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  background-color: gray;
+  color: white;
+  position: relative;
+  bottom: 90px;
+  opacity: .95;
+}
+
+#hostPic img {
+  position: relative;
+  bottom: 90px;
+  left: 270px;
+  height: 60px;
+  width: 60px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: white;
+}
+
+/* END LISTING */
