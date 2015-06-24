@@ -1,3 +1,25 @@
+<script>
+var getRating = function(){
+  $("#one").hide();
+  $("#two").hide();
+  $("#three").hide();
+  $("#four").hide();
+  $("#five").hide();
+  if ({{model.avgRating}}===1){
+    $("#one").show();
+  }else if ({{model.avgRating}}===2){
+    $("#two").show();
+  }else if ({{model.avgRating}}===3){
+    $("#three").show();
+  }else if ({{model.avgRating}}===4){
+    $("#four").show();
+  }else if ({{model.avgRating}}===5){
+    $("#five").show();
+  };
+};
+getRating();
+</script>
+
 {{#if isEditing}}
 <div class="container">
   <div class="row">
@@ -87,6 +109,37 @@
           <span class="glyphicon glyphicon-tree-deciduous"></span> <span class="glyphicon glyphicon-tent"></span><span class="glyphicon glyphicon-tree-deciduous"></span>
           <div class="description-list-body">
             <h2 class="text-capitalize listing-head">{{model.name}}</h2>
+
+            <div class="star">
+              <div id="one">
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+              </div>
+              <div id="two">
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+              </div>
+              <div id="three">
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+              </div>
+              <div id="four">
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+              </div>
+              <div id="five">
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+              </div>
+
+
+            </div>
+
             <p><span class="listing-bold">Owner Name: </span>{{model.ownerName}}</p>
             <p><span class="listing-bold">Description: </span>{{model.description}}</p>
             <p><span class="listing-bold">Address: </span>{{model.mapAddress}}</p>

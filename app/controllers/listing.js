@@ -5,8 +5,9 @@ export default Ember.Controller.extend({
   showers: ['yes', 'no'],
   outlets: ['yes', 'no'],
   pets: ['yes', 'no'],
+  avgRating: [1,2], // remove this later
   isEditing: false,
-  needs: ['map'],
+  needs: ['map', 'listing'],
   actions: {
     edit: function() {
       this.set('isEditing', true);
@@ -28,28 +29,12 @@ export default Ember.Controller.extend({
       listing.set('image4', this.get('model.image4'));
       listing.save();
       this.set('isEditing', false);
-      this.transitionToRoute('listings')
+      this.transitionToRoute('listings');
     },
     delete: function() {
       var listing = this.get('model');
       var maps = listing.get('maps');
-
-      // var ids = [];
-      // maps.forEach(function(map){
-      //   ids.push(map.get('id'));
-      // });
-
-      // var allMaps = this.store.find('map').then(function(allMapsCallback) {
-      //   ids.forEach(function(id){
-      //     allMapsCallback.forEach(function(aMap){
-      //       if(id === aMap.get('id')) {
-      //         aMap.destroyRecord();
-      //       }
-      //     });
-      //   });
       listing.destroyRecord();
-      // });
-
       this.transitionToRoute('listings');
     },
     reviewing: false,
@@ -57,21 +42,40 @@ export default Ember.Controller.extend({
       var review = this.store.createRecord('review', {
         author: this.get('author'),
         body: this.get('body'),
-        stars: this.get('stars'),
+        stars: this.get('stars')
       });
-
-      var listing = this.model;
-
-      review.save().then(function () {
-        listing.get('reviews').addObject(review);
+      var listing = this.get('controllers.listing.model');
+      var stars = parseInt(this.get('stars'));
+      var newAvgRating = parseInt(listing.get('avgRating'));
+      review.save().then(function() {
+        listing.get('reviews').pushObject(review);
+        newAvgRating = Math.floor((newAvgRating + stars) / 2);
+        listing.set('avgRating', newAvgRating);
         listing.save();
       });
 
-      this.set('reviewing', false);
+      $("#one").hide();
+      $("#two").hide();
+      $("#three").hide();
+      $("#four").hide();
+      $("#five").hide();
 
+      if(newAvgRating === 1){
+        $("#one").fadeIn();
+      }else if(newAvgRating === 2){
+        $("#two").fadeIn();
+      }else if(newAvgRating === 3){
+        $("#three").fadeIn();
+      }else if(newAvgRating === 4){
+        $("#four").fadeIn();
+      }else if(newAvgRating === 5){
+        $("#five").fadeIn();
+      }
+
+      this.set('reviewing', false);
       this.setProperties({
         author: '',
-        body: ''
+        body: '',
       });
     },
     showReview: function() {

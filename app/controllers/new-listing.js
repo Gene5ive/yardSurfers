@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   showers: ['yes', 'no'],
   outlets: ['yes', 'no'],
   pets: ['yes', 'no'],
+  avgRating: [1,2], //remove this later
   actions: {
     addListing: function() {
       var newListing = this.store.createRecord('listing', {
@@ -20,7 +21,8 @@ export default Ember.Controller.extend({
         image1: this.get('image1'),
         image2: this.get('image2'),
         image3: this.get('image3'),
-        image4: this.get('image4')
+        image4: this.get('image4'),
+        avgRating: this.get('avgRating')
       });
 
       newListing.save();

@@ -5,6 +5,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   mapAddress: DS.attr('string'),
   description: DS.attr('string'),
+  stars: DS.attr('number'),
   price: DS.attr('string'),
   toilet: DS.attr('string'),
   shower: DS.attr('string'),
@@ -14,5 +15,6 @@ export default DS.Model.extend({
   image2: DS.attr('string'),
   image3: DS.attr('string'),
   image4: DS.attr('string'),
+  avgRating: DS.attr('number'),
   reviews: DS.hasMany('review', {async: true})
 });

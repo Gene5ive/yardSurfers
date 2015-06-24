@@ -49,6 +49,11 @@
       {{view "select" content=pets value=pet}}
     </div>
 
+    <div class="control-group form-inline">
+      <label for="avg">remove this later:</label>
+      {{view "select" content=avg value=avgRating}}
+    </div>
+
     <div class="form-group image-inputs">
       <label for="image1">Image URL:</label>
       {{input value=image1 id="image1" class="form-control"}}
@@ -69,6 +74,8 @@
       <label for="image4">Image URL:</label>
       {{input value=image4 id="image4" class="form-control"}}
     </div>
+
+
 
     <button class="btn btn-primary btn-stretch" {{action 'addListing'}}>Submit</button>
   </form>
