@@ -14,5 +14,5 @@ export default DS.Model.extend({
   image2: DS.attr('string'),
   image3: DS.attr('string'),
   image4: DS.attr('string'),
-  // reviews: DS.hasMany('review', {async: true})
+  reviews: DS.hasMany('review', {async: true})
 });
