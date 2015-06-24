@@ -1,0 +1,200 @@
+{{#if isEditing}}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <h3 class="form-heading">Edit Your Yard Listing</h3>
+      <form>
+        <div class="form-group">
+          <label for="name" >Enter a name for your Yard:</label>
+          {{input value=model.name id="name" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="ownerName">Enter the yard owner's name:</label>
+          {{input value=model.ownerName id="ownerName" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="addNum">Street Number:</label>
+          {{input value=model.addNum id="addNum" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="addStreet">Street:</label>
+          {{input value=model.addStreet id="addStreet" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="addCity">City:</label>
+          {{input value=model.addCity id="addCity" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="addState">State abbreviation in all caps:</label>
+          {{input value=model.addState id="addState" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="addZip">Zip code of yard:</label>
+          {{input value=model.addZip id="addZip" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description of your yard:</label>
+          {{textarea value=model.description id="description" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price per night(USD):</label>
+          {{input value=model.price id="price" class="form-control"}}
+        </div>
+
+        <div class="control-group form-inline">
+          <label for="toilet">Toilet available?:</label>
+          {{view "select" content=toilets value=model.toilet}}
+        </div>
+
+        <div class="control-group form-inline">
+          <label for="shower">Shower available?:</label>
+          {{view "select" content=showers value=model.shower}}
+        </div>
+
+        <div class="control-group form-inline">
+          <label for="outlet">Electricity available?:</label>
+          {{view "select" content=outlets value=model.outlet}}
+        </div>
+
+        <div class="control-group form-inline">
+          <label for="pet">Pets allowed?:</label>
+          {{view "select" content=pets value=model.pet}}
+        </div>
+
+        <div class="form-group">
+          <label for="image1">Image URL:</label>
+          {{input value=model.image1 id="image1" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="image2">Image URL:</label>
+          {{input value=model.image2 id="image2" class="form-control"}}
+        </div>
+
+
+        <div class="form-group">
+          <label for="image3">Image URL:</label>
+          {{input value=model.image3 id="image3" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="image4">Image URL:</label>
+          {{input value=model.image4 id="image4" class="form-control"}}
+        </div>
+
+        <button class="btn btn-primary btn-stretch" {{action 'save'}}>Submit</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+{{else}}
+
+<div class="container listing-solo">
+  <div class="row">
+
+    <div class="col-lg-5">
+      <div class="panel panel-default text-center">
+        <div class="panel-body listing-info-panel">
+          <span class="glyphicon glyphicon-tree-deciduous"></span> <span class="glyphicon glyphicon-tent"></span><span class="glyphicon glyphicon-tree-deciduous"></span>
+          <div class="description-list-body">
+            <h2 class="text-capitalize listing-head">{{model.name}}</h2>
+            <p><span class="listing-bold">Owner Name: </span>{{model.ownerName}}</p>
+            <p><span class="listing-bold">Description: </span>{{model.description}}</p>
+            <p><span class="listing-bold">Address: </span>{{model.addNum}} {{model.addStreet}} {{model.addCity}}, {{model.addState}}</p>
+
+            <hr>
+            <h4 class="listing-head">Amenities:</h4><br>
+            <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
+            <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
+            <span class="listing-details"><span class="listing-bold">Electrical outlet: </span>{{model.outlet}}</span><br>
+            <span class="listing-details"><span class="listing-bold">Pets allowed: </span>{{model.pet}}</span><br>
+            <hr>
+
+            <h4 class="listing-head">Price:</h4><br>
+            <span class="listing-details"><span class="listing-bold">Price/night: </span>${{model.price}}</span>
+            <br>
+            <br>
+
+            <button class="btn btn-primary btn-wide" {{action 'edit'}}>Edit Listing</button>
+            <button class="btn btn-primary btn-wide" {{action 'delete' model.id}}>Delete Listing</button>
+          </div><!-- end of descriptionl-list-body-div -->
+        </div><!-- end of panel-body div -->
+      </div><!-- end of panel-default div -->
+    </div><!-- end of col-5 -->
+
+    <div class="col-lg-7">
+
+      <div class="panel panel-default text-center">
+        <div class="panel-body listing-map-panel">
+
+          <h4 class="map-header">This is where the stupid map will go</h4>
+
+        </div><!-- end of panel-body div -->
+      </div><!-- end of panel-default div -->
+      <!--carousel slide section -->
+
+      <h4 class="image-header">Images for {{model.name}}</h4>
+
+      <div class="carousel slide caro-solo" id="screenshot-carousel" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+          <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="2"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <img class="big-img" {{bind-attr src=model.image1}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+
+            </div>
+          </div>
+          <div class="item">
+            <img class="big-img" {{bind-attr src=model.image2}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+
+            </div>
+          </div>
+          <div class="item">
+            <img class="big-img" {{bind-attr src=model.image3}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+
+            </div>
+          </div>
+          <div class="item">
+            <img class="big-img" {{bind-attr src=model.image4}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+            </div>
+          </div>
+
+        </div><!-- end of inner carousel -->
+
+        <!-- add side arrows to carousel -->
+        <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div><!-- end of carousel slide div -->
+
+    </div><!-- end of col-7 -->
+  </div><!--end of row -->
+</div><!-- end of solo listing container -->
+{{/if}}

@@ -1,0 +1,96 @@
+
+
+
+<div class="col-lg-10 col-lg-offset-1">
+  <h3 class="form-heading">Add A New Yard Listing</h3>
+  <form>
+    <div class="form-group">
+      <label for="name" >Enter a name for your Yard:</label>
+      {{input value=name id="name" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="ownerName">Enter the yard owner's name:</label>
+      {{input value=ownerName id="ownerName" class="form-control"}}
+    </div>
+    <span class="form-instructions">Carefully enter the address per instructions</span>
+    <br>
+    <div class="form-group">
+      <label for="addNum">Street Number:</label>
+      {{input value=addNum id="addNum" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="addStreet">Street:</label>
+      {{input value=addStreet id="addStreet" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="addCity">City:</label>
+      {{input value=addCity id="addCity" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="addState">State abbreviation in all caps:</label>
+      {{input value=addState id="addState" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="addZip">Zip code of yard:</label>
+      {{input value=addZip id="addZip" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description of your yard:</label>
+      {{textarea value=description id="description" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price per night(USD):</label>
+      {{input value=price id="price" class="form-control"}}
+    </div>
+
+    <div class="control-group form-inline">
+      <label for="toilet">Toilet available?:</label>
+      {{view "select" content=toilets value=toilet}}
+    </div>
+
+    <div class="control-group form-inline">
+      <label for="shower">Shower available?:</label>
+      {{view "select" content=showers value=shower}}
+    </div>
+
+    <div class="control-group form-inline">
+      <label for="outlet">Electricity available?:</label>
+      {{view "select" content=outlets value=outlet}}
+    </div>
+
+    <div class="control-group form-inline">
+      <label for="pet">Pets allowed?:</label>
+      {{view "select" content=pets value=pet}}
+    </div>
+
+    <div class="form-group">
+      <label for="image1">Image URL:</label>
+      {{input value=image1 id="image1" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="image2">Image URL:</label>
+      {{input value=image2 id="image2" class="form-control"}}
+    </div>
+
+
+    <div class="form-group">
+      <label for="image3">Image URL:</label>
+      {{input value=image3 id="image3" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="image4">Image URL:</label>
+      {{input value=image4 id="image4" class="form-control"}}
+    </div>
+
+    <button class="btn btn-primary btn-stretch" {{action 'addListing'}}>Submit</button>
+  </form>
+</div><!--end of col-12 -->

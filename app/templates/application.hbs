@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+  <div class="container">
+    <div class="navbar-header">
+
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a href="/" class="navbar-brand">Yardist</a>
+
+    </div><!-- end of navbar header div -->
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+
+
+      <ul class="nav navbar-nav">
+        <li>{{#link-to 'listings'}}Listings{{/link-to}}</li>
+
+      </ul>
+    </div><!-- end of nav that contains ul links -->
+
+  </div><!--end of nav container -->
+</nav><!-- End navbar -->
+
+{{outlet}}
+
+<footer>
+
+  <div class="container text-center">
+    <h3>Subscribe to get updated about new listings </h3>
+    <p>Entert your name and email</p>
+
+    <form action="" class="form-inline">
+
+      <div class="form-group">
+        <label for="subscription">Subscribe</label>
+        <input type="text" class="form-control" id="subscription" placeholder="your name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Your email</label>
+        <input type="text" class="form-control" id="email" placeholder="your email">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+    <ul class="list-inline">
+      <li><a href="">Twitter</a></li>
+      <li><a href="">Facebook</a></li>
+      <li><a href="">Youtube</a></li>
+    </ul>
+    <p>&copy; Copyright 2015</p>
+
+  </div><!-- end of footer main container -->
+</footer>

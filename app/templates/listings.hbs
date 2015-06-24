@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-5 listings">
+      <h3>Here are all the Current Listings:</h3>
+
+      <ul class="unstyled-list">
+        {{#each listing in model}}
+        <li>
+          <p>{{#link-to 'listing' listing.id}}{{listing.name}}{{/link-to}}</p>
+        </li>
+        {{/each}}
+      </ul>
+
+      <h4>{{#link-to 'new-listing'}}Add a New Yard Listing{{/link-to}}</h4>
+    </div><!--end of div listings -->
+
+    <div class="col-lg-7 new-listing-form">
+      {{outlet}}
+    </div><!--end of div new-listing form -->
+  </div><!-- end of row -->
+</div><!end of main container -->
