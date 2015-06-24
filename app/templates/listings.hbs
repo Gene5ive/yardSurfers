@@ -7,7 +7,19 @@
       <ul class="unstyled-list">
         {{#each listing in model}}
         <li>
-          <p>{{#link-to 'listing' listing.id}}{{listing.name}}{{/link-to}}</p>
+          <div class="well listWell">
+              {{#link-to 'listing' listing.id}}
+              <div id="listPic">
+                <img src={{listing.image1}} height="250" width="350">
+              </div>
+              <p id="listPrice">${{listing.price}}</p>
+              <div id="hostPic">
+                <img src={{listing.image4}} class="img-circle" height="50" width="50">
+              </div>
+              <p id="listName">{{listing.name}}</p>
+              <p id="listDescription">{{listing.description}}</p>
+              {{/link-to}}
+          </div>
         </li>
         {{/each}}
       </ul>
