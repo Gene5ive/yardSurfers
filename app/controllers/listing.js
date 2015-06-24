@@ -58,14 +58,13 @@ export default Ember.Controller.extend({
         author: this.get('author'),
         body: this.get('body'),
         stars: this.get('stars'),
-        date: new Date()
       });
 
-      var venue = this.model;
+      var listing = this.model;
 
       review.save().then(function () {
-        venue.get('reviews').addObject(review);
-        venue.save();
+        listing.get('reviews').addObject(review);
+        listing.save();
       });
 
       this.set('reviewing', false);
