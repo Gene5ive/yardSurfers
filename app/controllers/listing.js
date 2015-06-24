@@ -15,11 +15,7 @@ export default Ember.Controller.extend({
       var listing = this.get('model');
       listing.set('name', this.get('model.name'));
       listing.set('ownerName', this.get('model.ownerName'));
-      listing.set('addNum', this.get('model.addNum'));
-      listing.set('addStreet', this.get('model.addStreet'));
-      listing.set('addCity', this.get('model.addCity'));
-      listing.set('addState', this.get('model.addState'));
-      listing.set('addZip', this.get('model.addZip'));
+      listing.set('mapAddress', this.get('model.mapAddress'));
       listing.set('description', this.get('model.description'));
       listing.set('price', this.get('model.price'));
       listing.set('toilet', this.get('model.toilet'));
