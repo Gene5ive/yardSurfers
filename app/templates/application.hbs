@@ -8,30 +8,33 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a href="/" class="navbar-brand">Yardist</a>
+      <a href="/" class="navbar-brand">yard surfer</a>
 
     </div><!-- end of navbar header div -->
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
 
 
-      <ul class="nav navbar-nav">
+      <ul id="listings" class="nav navbar-nav">
         <li>{{#link-to 'listings'}}Listings{{/link-to}}</li>
 
       </ul>
+
     </div><!-- end of nav that contains ul links -->
 
   </div><!--end of nav container -->
+  <div id="addYard">
+    <button class="addYard">{{#link-to 'new-listing'}}Add a Yard{{/link-to}}</button>
+  </div>
 </nav><!-- End navbar -->
+
 
 {{outlet}}
 
 <footer>
 
   <div class="container text-center">
-    <h3>Subscribe to get updated about new listings </h3>
-    <p>Entert your name and email</p>
-
+    <br>
     <form action="" class="form-inline">
 
       <div class="form-group">
