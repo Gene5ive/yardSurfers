@@ -1,5 +1,5 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
-  <div class="container">
+  <div id="navColor">
     <div class="navbar-header">
 
       <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
@@ -16,16 +16,14 @@
 
 
       <ul id="listings" class="nav navbar-nav">
-        <li>{{#link-to 'listings'}}Listings{{/link-to}}</li>
-
+        <li>{{#link-to 'listings'}}listings{{/link-to}}</li>
+        <li id="becomeHost">{{#link-to 'new-listing'}}become a host{{/link-to}}</li>
       </ul>
 
     </div><!-- end of nav that contains ul links -->
-
-  </div><!--end of nav container -->
-  <div id="addYard">
-    <button class="addYard">{{#link-to 'new-listing'}}Add a Yard{{/link-to}}</button>
   </div>
+
+
 </nav><!-- End navbar -->
 
 
