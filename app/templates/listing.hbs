@@ -170,38 +170,6 @@ getRating();
           </div>
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
-
-      <div class="review-section">
-
-        {{#if reviewing class="liquid-if"}}
-        <div class="well form-group">
-          {{input type="text" placeholder="Your Name" value=author}}
-          Rating: {{input value=stars type="number" min="1" max="5"}}
-          <br>
-          <br>
-          {{input type="text" placeholder="What do you think?" value=body rows=4}}
-          <button class="btn btn-xs btnGreen" name="button" {{action 'addReview'}}>Post</button>
-        </div>
-        {{else}}
-        {{/if}}
-
-        <h4>Reviews</h4>
-        <div>
-          {{#each review in model.reviews}}
-          <div  class="well reviewWell">
-            <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
-            <h4>{{review.body}}</h4>
-                <div class="review-author">
-
-                <span>by {{review.author}}</span>
-              </div>
-          </div>
-          <hr>
-          {{/each}}
-        </div>
-
-      </div>
-
     </div><!-- end of col-5 -->
 
     <div class="col-lg-7">
@@ -260,6 +228,33 @@ getRating();
         </a>
       </div><!-- end of carousel slide div -->
 
+
+        {{#liquid-if reviewing class="liquid-if"}}
+          <div class="well form-group">
+            {{input type="text" placeholder="Your Name" value=author}}
+            Rating: {{input value=stars type="number" min="1" max="5"}}
+            {{input type="text" placeholder="What do you think?" value=body}}
+            <button class="btn btn-danger" name="button" {{action 'addReview'}}>Post This Review</button>
+          </div>
+        {{else}}
+          <button class="btn btn-danger" name="button" {{action 'showReview'}}>Add Review</button>
+        {{/liquid-if}}
+
+        <br><br>
+
+        <h4>Reviews:</h4>
+        <div class="well">
+          {{#each review in model.reviews}}
+            <div class="review-author">
+              <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
+              <span>{{review.author}}</span>
+            </div>
+              {{review.body}}
+            <hr>
+          {{/each}}
+        </div>
+
+      </div>
     </div><!-- end of col-7 -->
   </div><!--end of row -->
 </div><!-- end of solo listing container -->

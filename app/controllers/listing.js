@@ -1,11 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  toilets: ['Yes', 'No'],
-  showers: ['Yes', 'No'],
-  outlets: ['Yes', 'No'],
-  pets: ['Yes', 'No'],
-  avgRating: [1,2], // remove this later
+
+  toilets: ['yes', 'no'],
+  showers: ['yes', 'no'],
+  outlets: ['yes', 'no'],
+  pets: ['yes', 'no'],
+  avgRating: [0],
+  newAvgRating: [0],
+  totalStars: [0],
   isEditing: false,
   needs: ['map', 'listing'],
   actions: {
@@ -46,10 +49,14 @@ export default Ember.Controller.extend({
       });
       var listing = this.get('controllers.listing.model');
       var stars = parseInt(this.get('stars'));
-      var newAvgRating = parseInt(listing.get('avgRating'));
+      var newAvgRating = parseInt(this.get('newAvgRating'));
+      var avgRating = parseInt(this.get('avgRating'));
+      var totalReviews = this.store.all('review').get('length');
+      var totalStars = this.get('totalStars');
       review.save().then(function() {
+        // totalStars.pushObject(stars);
         listing.get('reviews').pushObject(review);
-        newAvgRating = Math.floor((newAvgRating + stars) / 2);
+        newAvgRating = Math.floor((avgRating + stars) / totalReviews);
         listing.set('avgRating', newAvgRating);
         listing.save();
       });
