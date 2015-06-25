@@ -1,25 +1,37 @@
-import Ember from "ember";
+import Ember from 'ember';
 
-var GoogleMapComponent = {
-        insertMap: function(){
-        $(".image").hide();
-        var lat = this.get('lat');
-        var long = this.get('long');
+export default Ember.Component.extend({
+  coordinatesChanged: function() {
+    this.insertMap();
+  }.observes('mapAddress'),
+  insertMap: function() {
+    // var address = "1037 SW Broadway Portland, OR 97205";
+    var mapAddress = this.get('mapAddress');
+    var mapDiv = $('#map-canvas')[0];
+     console.log(mapAddress);
+     console.log(mapDiv);
+    var geocoder = new window.google.maps.Geocoder();
+    geocoder.geocode( { 'address': mapAddress}, function(results, status) {
 
-        var mapProp = {
-          center:new google.maps.LatLng(lat, long),
-          zoom:10,
-          mapTypeId:google.maps.MapTypeId.ROADMAP
+      if (status === google.maps.GeocoderStatus.OK) {
+        var options = {
+            center: new window.google.maps.LatLng(
+                results[0].geometry.location.lat(),
+                results[0].geometry.location.lng()
+            ),
+            zoom: 15
         };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        var marker=new google.maps.Marker({
-        position:new google.maps.LatLng(lat, long),
-        animation: google.maps.Animation.DROP
+        var map = new window.google.maps.Map(mapDiv, options);
+
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
         });
 
-        marker.setMap(map);
+      } else {
+        console.log("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }.on('didInsertElement')
 
-    }.on("didInsertElement")
-};
-
-export default Ember.Component.extend(GoogleMapComponent);
+});

@@ -252,3 +252,8 @@ li a {
 	position:relative;
 	top:1px;
 }
+
+#map-canvas {
+  height:500px;
+  width:600px;
+}
