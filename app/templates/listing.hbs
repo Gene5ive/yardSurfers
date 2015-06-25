@@ -230,7 +230,7 @@ getRating();
       </div><!-- end of carousel slide div -->
       <div class="review-section">
 
-        {{#if reviewing class="liquid-if"}}
+        {{#liquid-if reviewing class="liquid-if"}}
           <div class="well form-group">
             {{input type="text" placeholder="Your Name" value=author}}
             Rating: {{input value=stars type="number" min="1" max="5"}}
@@ -239,7 +239,7 @@ getRating();
           </div>
         {{else}}
           <button class="btn btn-danger" name="button" {{action 'showReview'}}>Add Review</button>
-        {{/if}}
+        {{/liquid-if}}
 
         <br><br>
 
