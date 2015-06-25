@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
   toilets: ['yes', 'no'],
   showers: ['yes', 'no'],
   outlets: ['yes', 'no'],
