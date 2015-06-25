@@ -138,21 +138,21 @@ getRating();
                 </div>
               </div>
             </div>
-            <h3 class="text-capitalize listing-head">{{model.name}}</h3>
-            <hr>
+              <h3 class="text-capitalize listing-head">{{model.name}}</h3>
+              <hr>
 
-            <p><span class="listing-bold">Description: </span>{{model.description}}</p>
-            <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
+              <p><span class="listing-bold">Description: </span>{{model.description}}</p>
+              <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
 
-            <hr>
-            <h4 class="listing-head">Amenities</h4>
-            <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
-            <hr>
-            <h4 class="listing-head">Price</h4>
-            <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
+              <hr>
+              <h4 class="listing-head">Amenities</h4>
+              <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
+              <hr>
+              <h4 class="listing-head">Price</h4>
+              <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
           </div><!-- end of descriptionl-list-body-div -->
             <hr>
             <h4 class="listing-head">Yard Rules</h4>
@@ -167,7 +167,7 @@ getRating();
               <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
               <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
               <button class="btn btnGreen btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
-          </div>
+            </div>
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
     </div><!-- end of col-5 -->
@@ -177,7 +177,7 @@ getRating();
       <div class="panel panel-default text-center">
         <div class="panel-body listing-map-panel">
           <div id="map-canvas">
-          {{google-map mapAddress=model.mapAddress}}
+            {{google-map mapAddress=model.mapAddress}}
           </div>
           <!-- <iframe width="600" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://my.ctrlq.org/maps/#roadmap|15|45.517810614747695|-122.69242613490299"></iframe> -->
 
@@ -200,14 +200,12 @@ getRating();
             <img class="big-img" {{bind-attr src=model.image1}}/>
             <div class="carousel-caption">
               <h4 class="text-capitalize">{{model.name}}</h4>
-
             </div>
           </div>
           <div class="item">
             <img class="big-img" {{bind-attr src=model.image2}}/>
             <div class="carousel-caption">
               <h4 class="text-capitalize">{{model.name}}</h4>
-
             </div>
           </div>
           <div class="item">
@@ -246,15 +244,13 @@ getRating();
         <div class="well">
           {{#each review in model.reviews}}
             <div class="review-author">
-              <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
+              <span  class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
               <span>{{review.author}}</span>
             </div>
-              {{review.body}}
+            {{review.body}}
             <hr>
           {{/each}}
         </div>
-
-      </div>
     </div><!-- end of col-7 -->
   </div><!--end of row -->
 </div><!-- end of solo listing container -->
