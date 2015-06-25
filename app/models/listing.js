@@ -15,6 +15,7 @@ export default DS.Model.extend({
   image3: DS.attr('string'),
   image4: DS.attr('string'),
   avgRating: DS.attr('number'),
+  newAvgRating: DS.attr('number'),
   totalStars: DS.attr('number'),
   reviews: DS.hasMany('review', {async: true})
 });
