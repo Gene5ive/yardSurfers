@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  toilets: ['yes', 'no'],
-  showers: ['yes', 'no'],
-  outlets: ['yes', 'no'],
-  pets: ['yes', 'no'],
-  avgRating: [0],
-  totalStars: [0],
+  toilets: ['Yes', 'No'],
+  showers: ['Yes', 'No'],
+  outlets: ['Yes', 'No'],
+  pets: ['Yes', 'No'],
+  avgRating: [1,2], // remove this later
   isEditing: false,
   needs: ['map', 'listing'],
   actions: {
@@ -28,7 +27,6 @@ export default Ember.Controller.extend({
       listing.set('image2', this.get('model.image2'));
       listing.set('image3', this.get('model.image3'));
       listing.set('image4', this.get('model.image4'));
-      listing.set('totalStars', this.get('model.totalStars'));
       listing.save();
       this.set('isEditing', false);
       this.transitionToRoute('listings');
@@ -48,16 +46,12 @@ export default Ember.Controller.extend({
       });
       var listing = this.get('controllers.listing.model');
       var stars = parseInt(this.get('stars'));
-      var avgRating = parseInt(this.get('avgRating'));
-      var totalReviews = this.store.all('review').get('length');
-      debugger;
+      var newAvgRating = parseInt(listing.get('avgRating'));
       review.save().then(function() {
-        listing.get('totalStars').pushObject(stars);
         listing.get('reviews').pushObject(review);
-        var newAvgRating = Math.floor((avgRating + stars) / totalReviews);
+        newAvgRating = Math.floor((newAvgRating + stars) / 2);
         listing.set('avgRating', newAvgRating);
         listing.save();
-        return newAvgRating;
       });
 
       $("#one").hide();

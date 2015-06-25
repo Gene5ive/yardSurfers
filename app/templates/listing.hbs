@@ -110,55 +110,64 @@ getRating();
             <div id="listingHost">
               <img src={{model.image4}} class="img-circle" height="100" width="100">
               <h5>  {{model.ownerName}}</h5>
+              <div class="star">
+                <div id="one">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="two">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="three">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="four">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="five">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+              </div>
             </div>
             <h3 class="text-capitalize listing-head">{{model.name}}</h3>
             <hr>
-            <div class="star">
-              <div id="one">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="two">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="three">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="four">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="five">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
 
-
-            </div>
-            <br>
             <p><span class="listing-bold">Description: </span>{{model.description}}</p>
             <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
 
             <hr>
-            <h4 class="listing-head">Amenities:</h4>
+            <h4 class="listing-head">Amenities</h4>
             <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
             <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
             <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
             <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
             <hr>
-
-            <h4 class="listing-head">Price:</h4>
+            <h4 class="listing-head">Price</h4>
             <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
           </div><!-- end of descriptionl-list-body-div -->
-          <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
-          <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
+            <hr>
+            <h4 class="listing-head">Yard Rules</h4>
+            <br>
+                <p>
+                  We are a gay-friendly, 420 friendly, cat friendly home. We expect guests to be respectful and treat our home like it were their own. Please clean up after yourself.
+
+                  We want you to have fun on your trip to Seattle but please keep in mind that some guests may have different sleeping schedules than you.
+
+                </p>
+            <div id="editButtons">
+              <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
+              <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
+              <button class="btn btnGreen btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
+          </div>
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
 
@@ -171,24 +180,19 @@ getRating();
           <br>
           <br>
           {{input type="text" placeholder="What do you think?" value=body rows=4}}
-          <br>
-          <br>
-          <button class="btn btn-danger" name="button" {{action 'addReview'}}>Post</button>
+          <button class="btn btn-xs btnGreen" name="button" {{action 'addReview'}}>Post</button>
         </div>
         {{else}}
-        <button class="btn btn-danger btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
         {{/if}}
-
-        <br><br>
-
 
         <h4>Reviews</h4>
         <div>
           {{#each review in model.reviews}}
           <div  class="well reviewWell">
+            <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
             <h4>{{review.body}}</h4>
                 <div class="review-author">
-                <!-- <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span> -->
+
                 <span>by {{review.author}}</span>
               </div>
           </div>
@@ -245,13 +249,6 @@ getRating();
 
             </div>
           </div>
-          <div class="item">
-            <img class="big-img" {{bind-attr src=model.image4}}/>
-            <div class="carousel-caption">
-              <h4 class="text-capitalize">{{model.name}}</h4>
-            </div>
-          </div>
-
         </div><!-- end of inner carousel -->
 
         <!-- add side arrows to carousel -->

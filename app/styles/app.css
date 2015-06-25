@@ -1,4 +1,17 @@
+html a:hover{
+  text-decoration: none;
+  color: #F0FFF0;
+}
 
+html a:active {
+  text-decoration: none;
+  color: #F0FFF0;
+}
+
+li a:visited {
+  text-decoration: none;
+  color: #F0FFF0;
+}
 
 body {
   padding-top: 120px;
@@ -12,6 +25,12 @@ body {
   left: 40px;
 }
 
+#hostFloatRight{
+  position: absolute;
+  left: 150px;
+  width: 150px;
+}
+
 #listingHost {
   width: 100px;
   text-align: center;
@@ -22,7 +41,8 @@ body {
 
 #listingsMap {
   position: absolute;
-  left: 900px;
+  left: 840px;
+  top: 175px;
 }
 
 .two-col-special {
@@ -61,7 +81,7 @@ body {
 }
 
 .btnGreen {
-  background-color: #2E8B57;
+  background-color: #FF6347;
   color: white;
   margin: 5px;
   float: right;
@@ -79,10 +99,11 @@ body {
 }
 
 .navbar-title {
-  color: white;
+  color: #FF6347;
   font-size: 40px;
   text-decoration: none;
   margin-left: 30px;
+  text-shadow: 1px;
 }
 
 footer {
@@ -113,7 +134,7 @@ footer {
 
 .form-heading {
   text-align: center;
-  color: #EA523A;
+  color: #FF6347;
 }
 
 .feature-home {
@@ -181,7 +202,7 @@ li a {
   font-weight: bold;
 }
 .listing-head, .image-header {
-  color: #EA523A;
+  color: #FF6347;
   font-weight: bold;
   text-align: center;
 }
@@ -250,7 +271,39 @@ a:hover {
 
 /* END LISTING */
 
+#editButtons {
+  position: absolute;
+  width: 40px;
+  top: 572px;
+  left: -20px;
+}
+
 #map-canvas {
   height:350px;
   width:620px;
 }
+
+.header-image {
+  position:absolute;
+  top:-270px;
+  bottom:0;
+  max-height:1270px;
+  overflow:hidden;
+  left: 0;
+  right: 0;
+  z-index:-1;
+}
+
+#homeGreet {
+  top: 270px;
+  color: white;
+  text-size: 55px;
+  text-align: center;
+  align: center;
+  position: relative;
+
+}
+
+.desaturate { filter: grayscale(100%); }
+
+.desaturate { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
