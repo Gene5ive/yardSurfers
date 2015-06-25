@@ -51,7 +51,6 @@ export default Ember.Controller.extend({
       var totalReviews = listing.store.all('review').get('length');
       var totalStars = listing.get('totalStars');
       review.save().then(function() {
-        debugger;
         listing.get('reviews').pushObject(review);
         totalStars += stars;
         listing.set('totalStars', totalStars);
