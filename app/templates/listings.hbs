@@ -1,13 +1,16 @@
-<div class="container">
-  <div class="row">
+<div id="listingsMap">
+  <iframe width="700" height="800" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://my.ctrlq.org/maps/#roadmap|10|45.517810614747695|-122.69242613490299"></iframe>
+</div>
 
-    <div class="col-lg-5 listings">
-      <h3>Here are all the Current Listings:</h3>
 
-      <ul class="unstyled-list">
+    <div class="listings">
+      {{outlet}}
+      <h3>Available in Portland</h3>
+
+      <ul class="two-col-special">
         {{#each listing in model}}
         <li>
-          <div class="well listWell">
+          <div class="listWell">
               {{#link-to 'listing' listing.id}}
               <div id="listPic">
                 <img src={{listing.image1}} height="250" width="350">
@@ -24,11 +27,9 @@
         {{/each}}
       </ul>
 
-      <h4>{{#link-to 'new-listing'}}Add a New Yard Listing{{/link-to}}</h4>
+
     </div><!--end of div listings -->
 
     <div class="col-lg-7 new-listing-form">
-      {{outlet}}
+
     </div><!--end of div new-listing form -->
-  </div><!-- end of row -->
-</div><!end of main container -->
