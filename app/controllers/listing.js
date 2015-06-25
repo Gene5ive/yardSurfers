@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  toilets: ['yes', 'no'],
-  showers: ['yes', 'no'],
-  outlets: ['yes', 'no'],
-  pets: ['yes', 'no'],
+  toilets: ['Yes', 'No'],
+  showers: ['Yes', 'No'],
+  outlets: ['Yes', 'No'],
+  pets: ['Yes', 'No'],
   avgRating: [1,2], // remove this later
   isEditing: false,
   needs: ['map', 'listing'],

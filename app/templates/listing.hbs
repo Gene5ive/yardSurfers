@@ -55,22 +55,22 @@ getRating();
           <label for="toilet">Toilet available?:</label>
           {{view "select" content=toilets value=model.toilet}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="shower">Shower available?:</label>
           {{view "select" content=showers value=model.shower}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="outlet">Electricity available?:</label>
           {{view "select" content=outlets value=model.outlet}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="pet">Pets allowed?:</label>
           {{view "select" content=pets value=model.pet}}
         </div>
-
+        <br>
         <div class="form-group">
           <label for="image1">Image URL:</label>
           {{input value=model.image1 id="image1" class="form-control"}}
@@ -88,11 +88,11 @@ getRating();
         </div>
 
         <div class="form-group">
-          <label for="image4">Image URL:</label>
+          <label for="image4">Host Image URL:</label>
           {{input value=model.image4 id="image4" class="form-control"}}
         </div>
 
-        <button class="btn btn-primary btn-stretch" {{action 'save'}}>Submit</button>
+        <button class="btn btnGreen btn-stretch" {{action 'save'}}>Submit</button>
 
       </form>
     </div>
@@ -106,10 +106,13 @@ getRating();
     <div class="col-lg-5">
       <div class="panel panel-default text-center">
         <div class="panel-body listing-info-panel">
-          <span class="glyphicon glyphicon-tree-deciduous"></span> <span class="glyphicon glyphicon-tent"></span><span class="glyphicon glyphicon-tree-deciduous"></span>
           <div class="description-list-body">
-            <h2 class="text-capitalize listing-head">{{model.name}}</h2>
-
+            <div id="listingHost">
+              <img src={{model.image4}} class="img-circle" height="100" width="100">
+              <h5>  {{model.ownerName}}</h5>
+            </div>
+            <h3 class="text-capitalize listing-head">{{model.name}}</h3>
+            <hr>
             <div class="star">
               <div id="one">
                 <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
@@ -139,29 +142,62 @@ getRating();
 
 
             </div>
-
-            <p><span class="listing-bold">Owner Name: </span>{{model.ownerName}}</p>
+            <br>
             <p><span class="listing-bold">Description: </span>{{model.description}}</p>
-            <p><span class="listing-bold">Address: </span>{{model.mapAddress}}</p>
+            <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
 
             <hr>
-            <h4 class="listing-head">Amenities:</h4><br>
+            <h4 class="listing-head">Amenities:</h4>
             <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
             <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Electrical outlet: </span>{{model.outlet}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Pets allowed: </span>{{model.pet}}</span><br>
+            <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
+            <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
             <hr>
 
-            <h4 class="listing-head">Price:</h4><br>
-            <span class="listing-details"><span class="listing-bold">Price/night: </span>${{model.price}}</span>
-            <br>
-            <br>
-
-            <button class="btn btn-primary btn-wide" {{action 'edit'}}>Edit Listing</button>
-            <button class="btn btn-primary btn-wide" {{action 'delete' model.id}}>Delete Listing</button>
+            <h4 class="listing-head">Price:</h4>
+            <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
           </div><!-- end of descriptionl-list-body-div -->
+          <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
+          <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
+
+      <div class="review-section">
+
+        {{#if reviewing class="liquid-if"}}
+        <div class="well form-group">
+          {{input type="text" placeholder="Your Name" value=author}}
+          Rating: {{input value=stars type="number" min="1" max="5"}}
+          <br>
+          <br>
+          {{input type="text" placeholder="What do you think?" value=body rows=4}}
+          <br>
+          <br>
+          <button class="btn btn-danger" name="button" {{action 'addReview'}}>Post</button>
+        </div>
+        {{else}}
+        <button class="btn btn-danger btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
+        {{/if}}
+
+        <br><br>
+
+
+        <h4>Reviews</h4>
+        <div>
+          {{#each review in model.reviews}}
+          <div  class="well reviewWell">
+            <h4>{{review.body}}</h4>
+                <div class="review-author">
+                <!-- <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span> -->
+                <span>by {{review.author}}</span>
+              </div>
+          </div>
+          <hr>
+          {{/each}}
+        </div>
+
+      </div>
+
     </div><!-- end of col-5 -->
 
     <div class="col-lg-7">
@@ -176,8 +212,6 @@ getRating();
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
       <!--carousel slide section -->
-
-      <h4 class="image-header">Images for {{model.name}}</h4>
 
       <div class="carousel slide caro-solo" id="screenshot-carousel" data-ride="carousel">
 
@@ -228,35 +262,7 @@ getRating();
           <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div><!-- end of carousel slide div -->
-      <div class="review-section">
 
-        {{#if reviewing class="liquid-if"}}
-          <div class="well form-group">
-            {{input type="text" placeholder="Your Name" value=author}}
-            Rating: {{input value=stars type="number" min="1" max="5"}}
-            {{input type="text" placeholder="What do you think?" value=body}}
-            <button class="btn btn-danger" name="button" {{action 'addReview'}}>Post This Review</button>
-          </div>
-        {{else}}
-          <button class="btn btn-danger" name="button" {{action 'showReview'}}>Add Review</button>
-        {{/if}}
-
-        <br><br>
-
-
-        <h4>Reviews:</h4>
-        <div class="well">
-          {{#each review in model.reviews}}
-            <div class="review-author">
-              <!-- <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span> --> -->
-              <span>{{review.author}}</span>
-            </div>
-              {{review.body}}
-            <hr>
-          {{/each}}
-        </div>
-
-      </div>
     </div><!-- end of col-7 -->
   </div><!--end of row -->
 </div><!-- end of solo listing container -->

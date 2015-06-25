@@ -12,15 +12,12 @@ body {
   left: 40px;
 }
 
-#addYard {
-  position: relative;
-  float: right;
-  bottom: 50px;
-  font-family: sans-serif;
-}
-
-#becomeHost {
-  color: red;
+#listingHost {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 500px;
 }
 
 #listingsMap {
@@ -49,45 +46,53 @@ body {
     display: inline-block;
 }
 
+.review-section {
+  display: inline-block;
+}
+
+.reviewWell {
+  width: 457px;
+}
+
 #listings {
   position: relative;
+  top: 5px;
+  left: 35px;
+}
+
+.btnGreen {
+  background-color: #2E8B57;
+  color: white;
+  margin: 5px;
   float: right;
 }
 
 #navColor {
-
   padding-top: 15px;
   height: 90px;
   background-color: #2E8B57;
   line-height: 45px;
   text-align: center;
-}
-
-.navbar-inverse {
-  background-color: #2E8B57;
-  border-color: #8AC453;
+  color:white;
   font-size:24px;
   font-family: 'Pacifico', cursive;
 }
 
-.navbar-nav {
-  float: right;
-  color: #2E8B57;
+.navbar-title {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  margin-left: 30px;
 }
 
-.navbar-inverse .navbar-brand {
-  color: #666c78;
-  font-size: 45px;
-
-}
 footer {
-  background-color: #8AC453;
+  background-color: #2E8B57;
   border-color: #8AC453;
-  color: #666c78;
+  color: white;
   margin-top: 45px;
-
   width: 100%;
 }
+
 .btn-stretch {
   width: 100%;
 }
@@ -117,10 +122,6 @@ footer {
 
 .panel-body {
   height: 400px;
-}
-
-.listings {
-  min-height:600px;
 }
 
 .listing-info-panel {
@@ -158,11 +159,14 @@ footer {
 .glyphicon-tree-deciduous, .glyphicon-tent {
   font-size:30px;
 }
+
 ul {
   list-style: none;
 }
+
 li a {
-  color:  #F7BC3E;
+  text-decoration: none;
+  color: white;
 }
 
 .btn-wide {
@@ -198,7 +202,7 @@ li a {
   display: inline-block;
 }
 
-.listWell a:hover {
+a:hover {
   text-decoration: none;
 }
 
