@@ -55,22 +55,22 @@ getRating();
           <label for="toilet">Toilet available?:</label>
           {{view "select" content=toilets value=model.toilet}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="shower">Shower available?:</label>
           {{view "select" content=showers value=model.shower}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="outlet">Electricity available?:</label>
           {{view "select" content=outlets value=model.outlet}}
         </div>
-
+        <br>
         <div class="control-group form-inline">
           <label for="pet">Pets allowed?:</label>
           {{view "select" content=pets value=model.pet}}
         </div>
-
+        <br>
         <div class="form-group">
           <label for="image1">Image URL:</label>
           {{input value=model.image1 id="image1" class="form-control"}}
@@ -88,11 +88,11 @@ getRating();
         </div>
 
         <div class="form-group">
-          <label for="image4">Image URL:</label>
+          <label for="image4">Host Image URL:</label>
           {{input value=model.image4 id="image4" class="form-control"}}
         </div>
 
-        <button class="btn btn-primary btn-stretch" {{action 'save'}}>Submit</button>
+        <button class="btn btnGreen btn-stretch" {{action 'save'}}>Submit</button>
 
       </form>
     </div>
@@ -106,60 +106,68 @@ getRating();
     <div class="col-lg-5">
       <div class="panel panel-default text-center">
         <div class="panel-body listing-info-panel">
-          <span class="glyphicon glyphicon-tree-deciduous"></span> <span class="glyphicon glyphicon-tent"></span><span class="glyphicon glyphicon-tree-deciduous"></span>
           <div class="description-list-body">
-            <h2 class="text-capitalize listing-head">{{model.name}}</h2>
-
-            <div class="star">
-              <div id="one">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+            <div id="listingHost">
+              <img src={{model.image4}} class="img-circle" height="100" width="100">
+              <h5>  {{model.ownerName}}</h5>
+              <div class="star">
+                <div id="one">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="two">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="three">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="four">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="five">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
               </div>
-              <div id="two">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="three">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="four">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-              <div id="five">
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-                <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
-              </div>
-
-
             </div>
+              <h3 class="text-capitalize listing-head">{{model.name}}</h3>
+              <hr>
 
-            <p><span class="listing-bold">Owner Name: </span>{{model.ownerName}}</p>
-            <p><span class="listing-bold">Description: </span>{{model.description}}</p>
-            <p><span class="listing-bold">Address: </span>{{model.mapAddress}}</p>
+              <p><span class="listing-bold">Description: </span>{{model.description}}</p>
+              <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
 
-            <hr>
-            <h4 class="listing-head">Amenities:</h4><br>
-            <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Electrical outlet: </span>{{model.outlet}}</span><br>
-            <span class="listing-details"><span class="listing-bold">Pets allowed: </span>{{model.pet}}</span><br>
-            <hr>
-
-            <h4 class="listing-head">Price:</h4><br>
-            <span class="listing-details"><span class="listing-bold">Price/night: </span>${{model.price}}</span>
-            <br>
-            <br>
-
-            <button class="btn btn-primary btn-wide" {{action 'edit'}}>Edit Listing</button>
-            <button class="btn btn-primary btn-wide" {{action 'delete' model.id}}>Delete Listing</button>
+              <hr>
+              <h4 class="listing-head">Amenities</h4>
+              <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
+              <hr>
+              <h4 class="listing-head">Price</h4>
+              <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
           </div><!-- end of descriptionl-list-body-div -->
+            <hr>
+            <h4 class="listing-head">Yard Rules</h4>
+            <br>
+                <p>
+                  We are a gay-friendly, 420 friendly, cat friendly home. We expect guests to be respectful and treat our home like it were their own. Please clean up after yourself.
+
+                  We want you to have fun on your trip to Seattle but please keep in mind that some guests may have different sleeping schedules than you.
+
+                </p>
+            <div id="editButtons">
+              <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
+              <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
+              <button class="btn btnGreen btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
+            </div>
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
     </div><!-- end of col-5 -->
@@ -169,15 +177,13 @@ getRating();
       <div class="panel panel-default text-center">
         <div class="panel-body listing-map-panel">
           <div id="map-canvas">
-          {{google-map mapAddress=model.mapAddress}}
+            {{google-map mapAddress=model.mapAddress}}
           </div>
           <!-- <iframe width="600" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://my.ctrlq.org/maps/#roadmap|15|45.517810614747695|-122.69242613490299"></iframe> -->
 
         </div><!-- end of panel-body div -->
       </div><!-- end of panel-default div -->
       <!--carousel slide section -->
-
-      <h4 class="image-header">Images for {{model.name}}</h4>
 
       <div class="carousel slide caro-solo" id="screenshot-carousel" data-ride="carousel">
 
@@ -194,14 +200,12 @@ getRating();
             <img class="big-img" {{bind-attr src=model.image1}}/>
             <div class="carousel-caption">
               <h4 class="text-capitalize">{{model.name}}</h4>
-
             </div>
           </div>
           <div class="item">
             <img class="big-img" {{bind-attr src=model.image2}}/>
             <div class="carousel-caption">
               <h4 class="text-capitalize">{{model.name}}</h4>
-
             </div>
           </div>
           <div class="item">
@@ -211,13 +215,6 @@ getRating();
 
             </div>
           </div>
-          <div class="item">
-            <img class="big-img" {{bind-attr src=model.image4}}/>
-            <div class="carousel-caption">
-              <h4 class="text-capitalize">{{model.name}}</h4>
-            </div>
-          </div>
-
         </div><!-- end of inner carousel -->
 
         <!-- add side arrows to carousel -->
@@ -228,7 +225,7 @@ getRating();
           <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div><!-- end of carousel slide div -->
-      <div class="review-section">
+
 
         {{#liquid-if reviewing class="liquid-if"}}
           <div class="well form-group">
@@ -243,20 +240,17 @@ getRating();
 
         <br><br>
 
-
         <h4>Reviews:</h4>
         <div class="well">
           {{#each review in model.reviews}}
             <div class="review-author">
-              <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span> -->
+              <span  class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
               <span>{{review.author}}</span>
             </div>
-              {{review.body}}
+            {{review.body}}
             <hr>
           {{/each}}
         </div>
-
-      </div>
     </div><!-- end of col-7 -->
   </div><!--end of row -->
 </div><!-- end of solo listing container -->

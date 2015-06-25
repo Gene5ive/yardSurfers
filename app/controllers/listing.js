@@ -1,15 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
   toilets: ['yes', 'no'],
   showers: ['yes', 'no'],
   outlets: ['yes', 'no'],
   pets: ['yes', 'no'],
-  avgRating: [0],
-  newAvgRating: [0],
-  totalStars: [0],
   isEditing: false,
-  needs: ['map', 'listing'],
+  needs: ['map'],
   actions: {
     edit: function() {
       this.set('isEditing', true);
@@ -29,6 +27,8 @@ export default Ember.Controller.extend({
       listing.set('image2', this.get('model.image2'));
       listing.set('image3', this.get('model.image3'));
       listing.set('image4', this.get('model.image4'));
+      listing.set('totalStars', this.get('model.totalStars'));
+      listing.set('avgRating', this.get('model.avgRating'));
       listing.save();
       this.set('isEditing', false);
       this.transitionToRoute('listings');
@@ -41,42 +41,44 @@ export default Ember.Controller.extend({
     },
     reviewing: false,
     addReview: function() {
+      var listing = this.get('model');
+      var stars = parseInt(this.get('stars'));
       var review = this.store.createRecord('review', {
         author: this.get('author'),
         body: this.get('body'),
-        stars: this.get('stars')
+        stars: stars
       });
-      var listing = this.get('controllers.listing.model');
-      var stars = parseInt(this.get('stars'));
-      var newAvgRating = parseInt(this.get('newAvgRating'));
-      var avgRating = parseInt(this.get('avgRating'));
-      var totalReviews = this.store.all('review').get('length');
-      var totalStars = this.get('totalStars');
+      var avgRating = listing.get('avgRating');
+      var totalReviews = listing.store.all('review').get('length');
+      var totalStars = listing.get('totalStars');
       review.save().then(function() {
-        // totalStars.pushObject(stars);
         listing.get('reviews').pushObject(review);
-        newAvgRating = Math.floor((avgRating + stars) / totalReviews);
+        totalStars += stars;
+        listing.set('totalStars', totalStars);
+        var newAvgRating = Math.floor(totalStars / totalReviews);
         listing.set('avgRating', newAvgRating);
         listing.save();
+
+        $("#one").hide();
+        $("#two").hide();
+        $("#three").hide();
+        $("#four").hide();
+        $("#five").hide();
+
+        if(newAvgRating === 1){
+          $("#one").fadeIn();
+        }else if(newAvgRating === 2){
+          $("#two").fadeIn();
+        }else if(newAvgRating === 3){
+          $("#three").fadeIn();
+        }else if(newAvgRating === 4){
+          $("#four").fadeIn();
+        }else if(newAvgRating === 5){
+          $("#five").fadeIn();
+        }
+
       });
 
-      $("#one").hide();
-      $("#two").hide();
-      $("#three").hide();
-      $("#four").hide();
-      $("#five").hide();
-
-      if(newAvgRating === 1){
-        $("#one").fadeIn();
-      }else if(newAvgRating === 2){
-        $("#two").fadeIn();
-      }else if(newAvgRating === 3){
-        $("#three").fadeIn();
-      }else if(newAvgRating === 4){
-        $("#four").fadeIn();
-      }else if(newAvgRating === 5){
-        $("#five").fadeIn();
-      }
 
       this.set('reviewing', false);
       this.setProperties({
