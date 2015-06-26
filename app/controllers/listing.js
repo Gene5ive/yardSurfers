@@ -48,7 +48,6 @@ export default Ember.Controller.extend({
         body: this.get('body'),
         stars: stars
       });
-      var avgRating = listing.get('avgRating');
       var totalReviews = listing.store.all('review').get('length');
       var totalStars = listing.get('totalStars');
       review.save().then(function() {
@@ -76,7 +75,6 @@ export default Ember.Controller.extend({
         }else if(newAvgRating === 5){
           $("#five").fadeIn();
         }
-
       });
 
 
