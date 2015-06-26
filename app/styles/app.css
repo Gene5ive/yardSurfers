@@ -19,6 +19,11 @@ background-size: cover;
   width: 300px;
 }
 
+.contactHost {
+  position: relative;
+  left: 10px;
+}
+
 html a:hover{
   text-decoration: none;
   color: #F0FFF0;
