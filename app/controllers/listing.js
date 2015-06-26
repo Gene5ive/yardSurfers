@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
       listing.set('mapAddress', this.get('model.mapAddress'));
       listing.set('description', this.get('model.description'));
       listing.set('price', this.get('model.price'));
+      listing.set('guestNumber', this.get('model.guestNumber'));
       listing.set('toilet', this.get('model.toilet'));
       listing.set('shower', this.get('model.shower'));
       listing.set('outlet', this.get('model.outlet'));
