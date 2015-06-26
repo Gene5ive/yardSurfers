@@ -6,6 +6,7 @@ export default DS.Model.extend({
   mapAddress: DS.attr('string'),
   description: DS.attr('string'),
   price: DS.attr('string'),
+  guestNumber: DS.attr('string'),
   toilet: DS.attr('string'),
   shower: DS.attr('string'),
   outlet: DS.attr('string'),
