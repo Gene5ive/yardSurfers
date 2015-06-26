@@ -13,6 +13,7 @@ export default Ember.Controller.extend({
         ownerName: this.get('ownerName'),
         mapAddress: this.get('mapAddress'),
         price: this.get('price'),
+        guestNumber: this.get('guestNumber'),
         description: this.get('description'),
         toilet: this.get('toilet'),
         shower: this.get('shower'),
