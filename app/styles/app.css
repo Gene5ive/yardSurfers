@@ -66,8 +66,8 @@ body {
     display: inline-block;
 }
 
-.review-section {
-  display: inline-block;
+#reviewColumn {
+  width: 460px;
 }
 
 .reviewWell {
@@ -270,6 +270,10 @@ a:hover {
 }
 
 /* END LISTING */
+
+.reviewPopup {
+  height: 85px;
+}
 
 #editButtons {
   position: absolute;
