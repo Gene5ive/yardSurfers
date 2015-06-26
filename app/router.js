@@ -7,10 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home', { path: '/' });
-<<<<<<< HEAD
   this.route('signin');
-=======
->>>>>>> 1c31762612d9dfc226f1a9a7b62e6c245729258f
   this.resource('listings', function(){
     this.resource('new-listing');
   });
