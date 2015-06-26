@@ -240,10 +240,7 @@ getRating();
     {{else}}
     {{/liquid-if}}
 
-    <br><br>
-
     <h4>Reviews:</h4>
-
       {{#each review in model.reviews}}
         <div class="well">
           <span class="rating">{{star-rating review.stars '<span class="star glyphicon glyphicon-star"></span>'}}</span>
