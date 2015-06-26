@@ -60,22 +60,22 @@ getRating();
           <label for="toilet">Toilet available?:</label>
           {{view "select" content=toilets value=model.toilet}}
         </div>
-        <br>
+        
         <div class="control-group form-inline">
           <label for="shower">Shower available?:</label>
           {{view "select" content=showers value=model.shower}}
         </div>
-        <br>
+        
         <div class="control-group form-inline">
           <label for="outlet">Electricity available?:</label>
           {{view "select" content=outlets value=model.outlet}}
         </div>
-        <br>
+        
         <div class="control-group form-inline">
           <label for="pet">Pets allowed?:</label>
           {{view "select" content=pets value=model.pet}}
         </div>
-        <br>
+        
         <div class="form-group">
           <label for="image1">Image URL:</label>
           {{input value=model.image1 id="image1" class="form-control"}}
