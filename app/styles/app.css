@@ -101,6 +101,8 @@ body {
 }
 
 #reviewColumn {
+  position: relative;
+  top: -80px;
   width: 460px;
 }
 
