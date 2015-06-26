@@ -1,0 +1,352 @@
+video#bgvid {
+position: fixed;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: 120%;
+height: 120%;
+z-index: -100;
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+background: url(polina.jpg) no-repeat;
+background-size: cover;
+}
+
+#login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+html a:hover{
+  text-decoration: none;
+  color: #F0FFF0;
+}
+
+html a:active {
+  text-decoration: none;
+  color: #F0FFF0;
+}
+
+li a:visited {
+  text-decoration: none;
+  color: #F0FFF0;
+}
+
+body {
+  padding-top: 120px;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.listings {
+  position: relative;
+  width: 800px;
+  left: 40px;
+}
+
+#hostFloatRight{
+  position: absolute;
+  left: 120px;
+  width: 150px;
+}
+
+#hostFloatRightFar{
+  position: absolute;
+  left: 88%;
+  top:25px;
+  width: 150px;
+  color: white;
+}
+
+#listingHost {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 500px;
+}
+
+#listingsMap {
+  position: absolute;
+  left: 840px;
+  top: 145px;
+}
+
+.two-col-special {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.two-col-special li {
+    display: inline-block;
+    width: 45%;
+    margin: 0;
+    padding: 0;
+    vertical-align: top; /* In case multi-word categories form two lines */
+}
+.two-col-special li:before {
+    padding: 5px;
+    margin-right: 5px; /* you can tweak the gap */
+    color: orange;
+    background-color: white; /* in case you want a color... */
+    display: inline-block;
+}
+
+#reviewColumn {
+  width: 460px;
+}
+
+.reviewWell {
+  width: 457px;
+}
+
+#listings {
+  position: relative;
+  top: 5px;
+  left: 35px;
+  font-family: 'Pacifico', cursive;
+}
+
+.btnGreen {
+  background-color: #FF6347;
+  color: white;
+  margin: 5px;
+  float: right;
+}
+
+#navColor {
+  padding-top: 15px;
+  height: 90px;
+  background-color: #2E8B57;
+  line-height: 45px;
+  text-align: center;
+  color:white;
+  font-size:24px;
+}
+
+.navbar-title {
+  color: #FF6347;
+  font-size: 40px;
+  text-decoration: none;
+  margin-left: 30px;
+  text-shadow: 1px;
+  font-family: 'Pacifico', cursive;
+}
+
+footer {
+  background-color: #2E8B57;
+  border-color: #8AC453;
+  color: white;
+  margin-top: 45px;
+  width: 100%;
+}
+
+.btn-stretch {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #EA523A;
+  border: #EA523A;
+}
+
+.btn-primary:active {
+  background-color: #F7BC3E;
+  border: #F7BC3E;
+}
+
+.btn-primary:hover {
+  background-color: #F7BC3E;
+}
+
+.form-heading {
+  text-align: center;
+  color: #FF6347;
+}
+
+.feature-home {
+  height:300px;
+}
+
+.panel-body {
+  height: 400px;
+}
+
+.listing-info-panel {
+  min-height:650px;
+
+}
+
+.listing-map-panel {
+  height: 380px;
+}
+.caro-solo {
+  height: 340px;
+
+}
+
+.carousel {
+  height: 350px;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border-radius:5px;
+  max-height: 400px;
+}
+
+.image-header {
+  padding-bottom: 3px;
+  font-size:24px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.glyphicon-tree-deciduous, .glyphicon-tent {
+  font-size:30px;
+}
+
+ul {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-wide {
+  width:48%;
+  margin-right:3px;
+}
+.control-group.form-inline:nth-child(odd) {
+  float: right;
+}
+.listing-bold {
+  color: #3BAEDB;
+  font-weight: bold;
+}
+.listing-head, .image-header {
+  color: #FF6347;
+  font-weight: bold;
+  text-align: center;
+}
+
+.description-list-body {
+  text-align: left;
+}
+
+/*.star {
+  color: orange;
+  float: right;
+}*/
+
+/* LISTING STYLING */
+
+.listWell {
+  height: 350px;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#listName {
+  position: relative;
+  bottom: 100px;
+  left: 15px;
+  font-size: 20px;
+  color: black;
+}
+
+#listDescription {
+  position: relative;
+  bottom: 107px;
+  left: 15px;
+  font-size: 12px;
+  color: black;
+}
+
+
+#listPrice {
+  width: 60px;
+  height: 45px;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  background-color: gray;
+  color: white;
+  position: relative;
+  bottom: 90px;
+  opacity: .95;
+}
+
+#hostPic img {
+  position: relative;
+  bottom: 90px;
+  left: 270px;
+  height: 60px;
+  width: 60px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: white;
+  background-color: white;
+}
+
+/* END LISTING */
+
+.reviewPopup {
+  height: 85px;
+}
+
+#editButtons {
+  position: absolute;
+  width: 40px;
+  top: 572px;
+  left: -20px;
+}
+
+.btnHome {
+  position: relative;
+  right: 44%;
+  text-align: center;
+}
+
+#map-canvas {
+  height:350px;
+  width:620px;
+}
+
+.header-image {
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  z-index:-1;
+}
+
+#homeGreet {
+  opacity: .9;
+  top: 67%;
+  right: 30%;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  align: center;
+  position: absolute;
+  z-index: 1;
+  font-weight: bold;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.desaturate { filter: grayscale(100%); }
+
+.desaturate { -webkit-filter: grayscale(100%); filter: grayscale(100%); }

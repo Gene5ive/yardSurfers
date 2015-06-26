@@ -1,0 +1,14 @@
+<div id="login">
+  <form>
+    <div class="form-group">
+      <label for="username">Username</label>
+      {{input value=name id="name" class="form-control"}}
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input value=ownerName id="ownerName" class="form-control"}}
+    </div>
+    <button class="btn btnGreen btn-stretch">{{#link-to 'listings'}}Submit{{/link-to}}</button>
+  </form>
+</div>

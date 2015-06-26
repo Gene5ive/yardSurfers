@@ -1,0 +1,258 @@
+<script>
+var getRating = function(){
+  $("#one").hide();
+  $("#two").hide();
+  $("#three").hide();
+  $("#four").hide();
+  $("#five").hide();
+  if ({{model.avgRating}}===1){
+    $("#one").show();
+  }else if ({{model.avgRating}}===2){
+    $("#two").show();
+  }else if ({{model.avgRating}}===3){
+    $("#three").show();
+  }else if ({{model.avgRating}}===4){
+    $("#four").show();
+  }else if ({{model.avgRating}}===5){
+    $("#five").show();
+  };
+};
+getRating();
+</script>
+
+{{#if isEditing}}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <h3 class="form-heading">Edit Your Yard Listing</h3>
+      <form>
+        <div class="form-group">
+          <label for="name" >Enter a name for your Yard:</label>
+          {{input value=model.name id="name" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="ownerName">Enter the yard owner's name:</label>
+          {{input value=model.ownerName id="ownerName" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="mapAddress">Enter the yard's address:</label>
+          {{input value=model.mapAddress id="mapAddress" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description of your yard:</label>
+          {{textarea value=model.description id="description" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price per night(USD):</label>
+          {{input value=model.price id="price" class="form-control"}}
+        </div>
+
+        <div class="control-group form-inline">
+          <label for="toilet">Toilet available?:</label>
+          {{view "select" content=toilets value=model.toilet}}
+        </div>
+        <br>
+        <div class="control-group form-inline">
+          <label for="shower">Shower available?:</label>
+          {{view "select" content=showers value=model.shower}}
+        </div>
+        <br>
+        <div class="control-group form-inline">
+          <label for="outlet">Electricity available?:</label>
+          {{view "select" content=outlets value=model.outlet}}
+        </div>
+        <br>
+        <div class="control-group form-inline">
+          <label for="pet">Pets allowed?:</label>
+          {{view "select" content=pets value=model.pet}}
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="image1">Image URL:</label>
+          {{input value=model.image1 id="image1" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="image2">Image URL:</label>
+          {{input value=model.image2 id="image2" class="form-control"}}
+        </div>
+
+
+        <div class="form-group">
+          <label for="image3">Image URL:</label>
+          {{input value=model.image3 id="image3" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label for="image4">Host Image URL:</label>
+          {{input value=model.image4 id="image4" class="form-control"}}
+        </div>
+
+        <button class="btn btnGreen btn-stretch" {{action 'save'}}>Submit</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+{{else}}
+
+<div class="container listing-solo">
+  <div class="row">
+
+    <div class="col-lg-5">
+      <div class="panel panel-default text-center">
+        <div class="panel-body listing-info-panel">
+          <div class="description-list-body">
+            <div id="listingHost">
+              <img src={{model.image4}} class="img-circle" height="100" width="100">
+              <h5>  {{model.ownerName}}</h5>
+              <div class="star">
+                <div id="one">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="two">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="three">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="four">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+                <div id="five">
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                  <span class='glyphicon glyphicon-star' aria-hidden='true'></span>
+                </div>
+              </div>
+            </div>
+              <h3 class="text-capitalize listing-head">{{model.name}}</h3>
+              <hr>
+
+              <p><span class="listing-bold">Description: </span>{{model.description}}</p>
+              <p><span class="listing-bold">Address:     </span>{{model.mapAddress}}</p>
+
+              <hr>
+              <h4 class="listing-head">Amenities</h4>
+              <span class="listing-details"><span class="listing-bold">Toilet: </span>{{model.toilet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Shower: </span>{{model.shower}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Electrical Outlet: </span>{{model.outlet}}</span><br>
+              <span class="listing-details"><span class="listing-bold">Pets Allowed: </span>{{model.pet}}</span><br>
+              <hr>
+              <h4 class="listing-head">Price</h4>
+              <span class="listing-details"><span class="listing-bold">Price/Night: </span>${{model.price}}</span>
+          </div><!-- end of descriptionl-list-body-div -->
+            <hr>
+            <h4 class="listing-head">Yard Rules</h4>
+            <br>
+                <p>
+                  We are a gay-friendly, 420 friendly, cat friendly home. We expect guests to be respectful and treat our home like it were their own. Please clean up after yourself.
+
+                  We want you to have fun on your trip to Seattle but please keep in mind that some guests may have different sleeping schedules than you.
+
+                </p>
+            <div id="editButtons">
+              <button class="btn btn-xs btnGreen" {{action 'edit'}}>Edit Listing</button>
+              <button class="btn btn-xs btnGreen" {{action 'delete' model.id}}>Delete Listing</button>
+              <button class="btn btnGreen btn-xs" name="button" {{action 'showReview'}}>Add Review</button>
+            </div>
+        </div><!-- end of panel-body div -->
+      </div><!-- end of panel-default div -->
+    </div><!-- end of col-5 -->
+
+    <div class="col-lg-7">
+
+      <div class="panel panel-default text-center">
+        <div class="panel-body listing-map-panel">
+          <div id="map-canvas">
+            {{google-map mapAddress=model.mapAddress}}
+          </div>
+          <!-- <iframe width="600" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://my.ctrlq.org/maps/#roadmap|15|45.517810614747695|-122.69242613490299"></iframe> -->
+
+        </div><!-- end of panel-body div -->
+      </div><!-- end of panel-default div -->
+      <!--carousel slide section -->
+
+      <div class="carousel slide caro-solo" id="screenshot-carousel" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+          <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="2"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner">
+
+          <div class="item active">
+            <img class="big-img" {{bind-attr src=model.image1}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+            </div>
+          </div>
+          <div class="item">
+            <img class="big-img" {{bind-attr src=model.image2}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+            </div>
+          </div>
+          <div class="item">
+            <img class="big-img" {{bind-attr src=model.image3}}/>
+            <div class="carousel-caption">
+              <h4 class="text-capitalize">{{model.name}}</h4>
+
+            </div>
+          </div>
+        </div><!-- end of inner carousel -->
+
+        <!-- add side arrows to carousel -->
+        <a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div><!-- end of carousel slide div -->
+    </div><!-- end of col-7 -->
+  </div><!--end of row -->
+
+  <div id="reviewColumn">
+    {{#liquid-if reviewing class="liquid-if"}}
+    <div class="well form-group reviewPopup">
+      {{input type="text" placeholder="Your Name" value=author}}
+      Rating: {{input value=stars type="number" min="1" max="5"}}
+      {{input type="text" placeholder="What do you think?" value=body}}
+      <button class="btn btnGreen btn-xs" name="button" {{action 'addReview'}}>Post</button>
+    </div>
+    {{else}}
+    {{/liquid-if}}
+
+    <br><br>
+
+    <h4>Reviews:</h4>
+
+      {{#each review in model.reviews}}
+      <div class="well">
+      <h3>{{review.body}}</h3>
+        <span>by {{review.author}}</span>
+      </div>
+      <hr>
+      {{/each}}
+  </div>
+</div><!-- end of solo listing container -->
+
+
+
+{{/if}}

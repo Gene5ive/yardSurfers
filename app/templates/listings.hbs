@@ -1,0 +1,40 @@
+
+
+
+
+<div id="listingsMap">
+  <iframe width="800" height="800" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://my.ctrlq.org/maps/#roadmap|10|45.517810614747695|-122.69242613490299"></iframe>
+</div>
+
+    <div class="listings">
+
+      {{liquid-outlet containerless=true}}
+
+      <h3>Available in Portland</h3>
+
+      <ul class="two-col-special">
+        {{#each listing in model}}
+        <li>
+          <div class="listWell">
+              {{#link-to 'listing' listing.id}}
+              <div id="listPic">
+                <img src={{listing.image1}} height="250" width="350">
+              </div>
+              <p id="listPrice">${{listing.price}}</p>
+              <div id="hostPic">
+                <img src={{listing.image4}} class="img-circle" height="50" width="50">
+              </div>
+              <p id="listName">{{listing.name}}</p>
+              <p id="listDescription">{{listing.description}}</p>
+              {{/link-to}}
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+
+
+    </div><!--end of div listings -->
+
+    <div class="col-lg-7 new-listing-form">
+
+    </div><!--end of div new-listing form -->
